@@ -11,9 +11,7 @@ const client = new Client({
 
 client.connect();
 
-async function Query(query) {
+exports.query = async (query) => {
     const { rows } = await client.query(query);
     return rows;
-}
-
-Query('SELECT * FROM contacts').then(console.log);
+};
