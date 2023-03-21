@@ -26,7 +26,7 @@ class ContactController {
         // Criar novo registro
         const { name, email, phone, category_id } = request.body;
 
-        if(!name || !email || !phone || !category_id){
+        if(!name || !email || !phone){
             return response.status(400).json({ error: 'Fields was not found' })
         }
 
@@ -55,7 +55,7 @@ class ContactController {
         if(!contactExists) {
             return response.status(404).json({ error: 'User not found' });
         }
-        if(!name || !email || !phone || !category_id){
+        if(!name || !email || !phone){
             return response.status(400).json({ error: 'Fields was not found' })
         }
         const contactByEmail = await ContactsRepository.findByEmail(email);
